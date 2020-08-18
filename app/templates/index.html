@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>AI Authentication</title>
+</head>
+
+<body>
+  <h1>AI Authentication</h1>
+  <p>This website uses AI to authenticate the user. Please give permission for your webcam.
+    <br>A modern Deep Learning algorithm will then check, if you are allowed to access the website.</p>
+  <p id=similarity>similarity: 0%</p>
+  <p id=access>denied</p>
+  <p id=text>The AI has not seen any images of you yet.</p>
+  <video id="video" width="512px" height="512px" autoplay muted></video>
+  <canvas id="canvas"></canvas>
+</body>
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'webcam.js') }}"></script>
+
+</html>
