@@ -4,7 +4,7 @@ With the rise of Machine Learning IT Security might look different in a few year
 This challenge not only requires from you to analyse the website, but also some data handling and number crunching is required.  
 The challenge is to login into the website. The authentication is done by a Machine Learning model in the backend. It is able to identify valid users by an image from your webcam. You have solved the challenge if the label "access" says "granted".  
 
-![Website](https://github.com/arturmiller/adversarial_ml_ctf/images/website.png "Appearance of the website")
+![Website](https://raw.githubusercontent.com/arturmiller/adversarial_ml_ctf/master/images/website.png)
 
 ## Installation
 The easiest way to install and run the webserver is by using [docker](https://docs.docker.com/get-docker/). Just pull and run the docker image.
