@@ -14,16 +14,16 @@ def home():
 
 @app.route('/check', methods=['POST'])
 def check():
-    data = request.get_json()
-    image = decode_image(data['image'])
+    data = request.get_data()
+    image = decode_image(data)
     similarity = model.check_similarity(image)
     response = create_response(similarity)
     return response
 
 
 def decode_image(data):
-    starter = data.find(',')
-    image_data = bytes(data[starter+1:], encoding="ascii")
+    starter = data.find(b',')
+    image_data = data[starter+1:]
     image = Image.open(BytesIO(base64.b64decode(image_data))).convert('RGB')
     return image
 

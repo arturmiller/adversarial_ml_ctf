@@ -30,16 +30,14 @@ video.addEventListener('play', () => {
     context.drawImage(video, 0, 0, width, height);
     var image = canvas.toDataURL('image/png');
 
-    let data = {image: image};
-
     (async () => {
       const rawResponse = await fetch('/check', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'image/png'
         },
-        body: JSON.stringify(data)
+        body: image
       });
       const content = await rawResponse.json();
 
