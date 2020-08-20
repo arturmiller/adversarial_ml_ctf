@@ -14,7 +14,7 @@ docker run -it -p 5000:5000 --name=adversarial_ml_ctf arturmiller/adversarial_ml
 ```
 
 Now you can access the website locally ([http://localhost:5000](http://localhost:5000)) with any browser.
-I recommend to access the website from the same machine, where the container is running. For security reasons most browsers block opening the webcam if the connection is not secure (https). The only exception localhost.
+I recommend to access the website from the same machine, where the container is running. For security reasons most browsers block opening the webcam if the connection is not secure (http instead of https). The only exception localhost.
 
 ## I have no webcam?
 You actually don't need a webcam to solve this challenge. On Ubuntu you can create a fake webcam with v4l2loopback and pyfakewebcam.
