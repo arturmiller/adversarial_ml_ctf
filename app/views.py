@@ -1,20 +1,27 @@
 import base64
 from io import BytesIO
 
-from flask import Flask, render_template, request, jsonify
+import flask
 from PIL import Image
+import numpy as np
 
 from app import app, model
 
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return flask.render_template('index.html')
+
+
+random_number = ''.join([str(value) for value in np.random.randint(10, size=30)])
+@app.route('/hidden_page_' + random_number)
+def hidden_page():
+    return flask.render_template('hidden_page.html')
 
 
 @app.route('/check', methods=['POST'])
 def check():
-    data = request.get_data()
+    data = flask.request.get_data()
     image = decode_image(data)
     similarity = model.check_similarity(image)
     response = create_response(similarity)
@@ -30,11 +37,11 @@ def decode_image(data):
 
 def create_response(similarity):
     if similarity > 80.0:
-        data = {'similarity': similarity, 'access': 'granted', 'text': 'You have been successfully authenticated! Hello Mr. Goldfish.'}
+        data = flask.redirect(flask.url_for('hidden_page'))
     elif similarity > 50.0:
         data = {'similarity': similarity, 'access': 'denied', 'text': 'The AI is unsure...'}
     elif similarity > 10.0:
         data = {'similarity': similarity, 'access': 'denied', 'text': 'The AI is confident, that you have no access rights.'}
     else:
         data = {'similarity': similarity, 'access': 'denied', 'text': 'The AI is very confident, that you have no access rights.'}
-    return jsonify(data) 
+    return flask.jsonify(data) 

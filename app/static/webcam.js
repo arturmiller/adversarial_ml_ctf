@@ -39,11 +39,17 @@ video.addEventListener('play', () => {
         },
         body: image
       });
-      const content = await rawResponse.json();
+      if(rawResponse.redirected){
+        window.location.replace(rawResponse.url);
+      }
+      else{
+        const content = await rawResponse.json();
 
-      similarity_paragraph.textContent = "similarity: " + content.similarity.toFixed(2).toString() + "%"
-      access_paragraph.textContent = "access: " + content.access
-      text_paragraph.textContent = content.text
+        similarity_paragraph.textContent = "similarity: " + content.similarity.toFixed(2).toString() + "%"
+        access_paragraph.textContent = "access: " + content.access
+        text_paragraph.textContent = content.text
+      }
+
     })();
 
   }, webcam_timeout)

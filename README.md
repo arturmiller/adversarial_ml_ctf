@@ -2,7 +2,7 @@
 
 With the rise of Machine Learning IT Security might look different in a few years. This repository is a CTF challenge, showing a security flaw in most (all?) common artificial neural networks. They are vulnerable for adversarial images.  
 This challenge not only requires from you to analyse the website, but also some data handling and number crunching is required.  
-The challenge is to login into the website. The authentication is done by a Machine Learning model in the backend. It is able to identify valid users by an image from your webcam. You have solved the challenge if the label "access" says "granted".  
+The challenge is to login into the website. The authentication is done by a Machine Learning model in the backend. It is able to identify valid users by an image from your webcam. You have solved the challenge when the website says "You are authenticated".  
 
 ![Website](https://raw.githubusercontent.com/arturmiller/adversarial_ml_ctf/master/images/website.png)
 
