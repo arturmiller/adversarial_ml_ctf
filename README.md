@@ -58,3 +58,6 @@ Run the webserver with:
 ```bash
 python3 main.py
 ```
+
+## Solution
+You can find the solution of this challenge in the [adversarial_ml_ctf](https://github.com/arturmiller/adversarial_ml_ctf) repository.

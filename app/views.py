@@ -38,6 +38,7 @@ def decode_image(data):
 def create_response(similarity):
     if similarity > 80.0:
         data = flask.redirect(flask.url_for('hidden_page'))
+        return data
     elif similarity > 50.0:
         data = {'similarity': similarity, 'access': 'denied', 'text': 'The AI is unsure...'}
     elif similarity > 10.0:
